@@ -8,4 +8,9 @@ class Db
 
         return $db;
     }
+
+    public static function closeConnection($db)
+    {
+        mysqli_close($db);
+    }
 }

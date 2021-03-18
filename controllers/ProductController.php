@@ -1,6 +1,6 @@
 <?php
 
-class ProductController
+class ProductController implements BaseController
 {
     public function actionList()
     {

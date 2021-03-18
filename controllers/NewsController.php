@@ -2,7 +2,7 @@
 
 include_once ROOT.'\model\News.php';
 
-class NewsController
+class NewsController implements BaseController
 {
     public function actionIndex()
     {
@@ -14,7 +14,7 @@ class NewsController
         return true;
     }
 
-    public function actionView($category, $id)
+    public function actionView($id)
     {
         $newsList = News::getNewsItemById($id);
 
@@ -25,10 +25,15 @@ class NewsController
 
     public function actionAddNewArticle()
     {
-        //$newsList = News::insertNewData($data);
-
         require_once(ROOT . '\views\addNewArticle.php');
-        echo 'Hi';
+        return true;
+    }
+
+    public function actionInsertNewArticle($data)
+    {
+        News::insertArticle($data);
+
+        $this->actionIndex();
         return true;
     }
 }

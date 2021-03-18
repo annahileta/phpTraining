@@ -2,7 +2,7 @@
 
 include_once ROOT.'\components\Db.php';
 
-class News
+class News extends BaseModel
 {
     public static function getNewsItemById($id)
     {
@@ -11,6 +11,9 @@ class News
         $result = mysqli_query($db, 'SELECT * FROM news WHERE id=' . $id);
 
         $newsItem = $result;
+
+        Db::closeConnection($db);
+
         return $newsItem;
     }
 
@@ -27,6 +30,24 @@ class News
             $newsList[$i] = $row;
             $i++;
         }
+        Db::closeConnection($db);
         return $newsList;
+    }
+
+    public static function insertArticle($data)
+   {
+        $db = Db::getConnection();
+
+        $sql = sprintf("INSERT INTO news (title, date, content, author_name) VALUES (
+            '%s', '%s', '%s', '%s'
+        )", 
+        mysqli_real_escape_string($db, $data['title']),
+        mysqli_real_escape_string($db, $data['date']), 
+        mysqli_real_escape_string($db, $data['content']),
+        mysqli_real_escape_string($db, $data['author']));
+
+        mysqli_query($db, $sql);
+
+        Db::closeConnection($db);
     }
 }

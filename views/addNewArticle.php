@@ -37,6 +37,13 @@
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
 			<div id="content">
+			<?php
+				include_once ROOT.'\controllers\NewsController.php';
+				if (isset($_POST['submit'])) {
+					$controller = new NewsController();
+					$controller->actionInsertNewArticle($_POST);
+				}
+			?>
 				<form method="POST" action="">
 					<h2>Get creative and add a new article</h2>
 					<div>
