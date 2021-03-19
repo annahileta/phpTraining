@@ -1,5 +1,7 @@
 <?php
 
+namespace MVCFramework;
+
 class Router 
 {
     private $routes;
@@ -10,9 +12,6 @@ class Router
         $this->routes = include($routesPath);
     }
 
-    /*
-     * Returns request string
-     */
     private function getURI()
     {
         if (!empty($_SERVER['REQUEST_URI'])){

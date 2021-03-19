@@ -1,7 +1,7 @@
 <?php
 
-include_once ROOT.'\config\Db.php';
-include_once ROOT.'\model\BaseModel.php';
+namespace MVCFramework;
+use MVCFramework\BaseModel;
 
 class News extends BaseModel
 {
@@ -28,7 +28,7 @@ class News extends BaseModel
                 $i++;
             }
             $db = null;
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
             die();
         }

@@ -1,11 +1,12 @@
 <?php
 
-include_once ROOT.'\config\Db.php';
+namespace MVCFramework;
+use Db;
 
 class BaseModel {
-	private static BaseModel $thisObject;
+	private static $thisObject;
 
-	private Db $dbClassInstance;
+	private $dbClassInstance;
 
     public function __construct()
     {

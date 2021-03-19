@@ -1,6 +1,8 @@
 <?php
 
-include_once ROOT.'\components\Db.php';
+namespace MVCFramework;
+
+use Db;
 
 class BaseController
 {
@@ -11,7 +13,8 @@ class BaseController
 	public function __construct()
 	{
 		self::$thisObject = $this;
-        $this::$db = Db::getConnection();
+		$db = new Db();
+        $this::$db = $db->getConnection();
 	}
 
 	public static function get_this_controller_object()

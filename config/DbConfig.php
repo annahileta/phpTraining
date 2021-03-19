@@ -1,4 +1,5 @@
 <?php
+namespace MVCFramework;
 
 return array(
     'host' =>"localhost",

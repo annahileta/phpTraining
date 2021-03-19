@@ -36,33 +36,34 @@
 	<div id="page">
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
-			<div id="content">
-			<?php
-				include_once ROOT.'\controllers\NewsController.php';
-				if (isset($_POST['submit'])) {
-					$controller = new NewsController();
-					$controller->actionInsertNewArticle($_POST);
-				}
-			?>
-				<form method="POST" action="">
-					<h2>Get creative and add a new article</h2>
-					<div>
-						<p>Title</p>
-						<input type="text" name="title" >
-					</div>
-					<div>
-						<p>Author name</p>
-						<input type="text" name="author" >
-					</div>
-					<div>
-						<p>Date</p>
-						<input type="date" name="date" >
-					</div>
-					<div>
-						<p>Content</p>
-						<textarea name="content" style="width: 60%; height: 100px;"> </textarea>
-					</div>
-					<input type="submit" name="submit" value="Submit">
+				<div id="content">
+					<?php
+						use MVCFramework\NewsController;
+
+						if (isset($_POST['submit'])) {
+							$controller = new NewsController();
+							$controller->actionInsertNewArticle($_POST);
+						}
+					?>
+					<form method="POST" action="">
+						<h2>Get creative and add a new article</h2>
+						<div>
+							<p>Title</p>
+							<input type="text" name="title" >
+						</div>
+						<div>
+							<p>Author name</p>
+							<input type="text" name="author" >
+						</div>
+						<div>
+							<p>Date</p>
+							<input type="date" name="date" >
+						</div>
+						<div>
+							<p>Content</p>
+							<textarea name="content" style="width: 60%; height: 100px;"> </textarea>
+						</div>
+						<input type="submit" name="submit" value="Submit">
 					</form>
 					<p><a href='/news/' class="permalink"> Back to HomePage</a></p>
 					<div style="clear: both;">&nbsp;</div>

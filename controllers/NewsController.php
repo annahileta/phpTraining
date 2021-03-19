@@ -1,10 +1,12 @@
 <?php
 
-include_once ROOT.'\model\News.php';
+namespace MVCFramework;
+
+use News;
 
 class NewsController
 {
-    private News $newsModel;
+    private $newsModel;
 
     public function __construct()
     {
@@ -17,8 +19,6 @@ class NewsController
         $newsList = $this->newsModel->getNewsList();
 
         require_once(ROOT . '\views\index.php');
-        
-        return true;
     }
 
     public function actionView($id)
@@ -26,14 +26,11 @@ class NewsController
         $newsItem = $this->newsModel->getNewsItemById($id);
 
         require_once(ROOT . '\views\view.php');
-
-        return true;
     }
 
     public function actionAddNewArticle()
     {
         require_once(ROOT . '\views\addNewArticle.php');
-        return true;
     }
 
     public function actionInsertNewArticle($data)
@@ -41,6 +38,5 @@ class NewsController
         $this->newsModel->insertArticle($data);
 
         $this->actionIndex();
-        return true;
     }
 }
