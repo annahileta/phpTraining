@@ -6,11 +6,11 @@ class DefaultPages
 {
     public function getHomePage(){
         $controller = new NewsController();
-        return $controller->actionIndex();
+        $controller->actionIndex();
     }
 
     public function getLogination(){
         $controller = new AuthorizationController();
-        return $controller->actionLogin();
+        $controller->actionLogin();
     }
 }

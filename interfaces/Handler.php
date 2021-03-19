@@ -2,5 +2,5 @@
 
     interface Handler
     {
-        public function handle($context): bool;
+        public function handle(): bool;
     }

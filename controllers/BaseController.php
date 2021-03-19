@@ -4,24 +4,23 @@ require_once(ROOT.'\config\Db.php');
 
 class BaseController
 {
-    public static $db;
+    public $db;
 
 	private $thisObject;
 
 	public function __construct()
 	{
-		self::$thisObject = $this;
-		$db = new Db();
-        $this::$db = $db->getConnection();
+		$this->thisObject = $this;
+        $this->db = new Db();
 	}
 
-	public static function get_this_controller_object()
+	public function get_this_controller_object()
 	{
-		return self::$thisObject;
+		return $this->thisObject;
 	}
-	
+
 	public function getDbClassInstance()
 	{
-		return $this->dbClassInstance;
+		return $this->db;
 	}
 }

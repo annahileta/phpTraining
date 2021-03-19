@@ -2,6 +2,6 @@
 
 require_once(ROOT.'\controllers\AuthorizationController.php');
 
-return [
+return  array(
     new AuthorizationController(),
-];
+);

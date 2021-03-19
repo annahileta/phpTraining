@@ -33,7 +33,7 @@ class AuthorizationController extends BaseController implements Handler
         }
     }
 
-    public function handle($context): bool
+    public function handle(): bool
     {
         return isset($_SESSION['user']);
     }

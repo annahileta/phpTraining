@@ -5,16 +5,16 @@ require_once(ROOT.'\components\defaultPages.php');
 class Router 
 {
     private $routes;
-    private $requestHandlers;
+    private $requestHandlers = array();
     private $defaultPagesClass;
 
     public function __construct()
     {
         $routesPath = ROOT.'/config/routes.php';
-        $this->routes = include($routesPath);
+        $this->routes = include_once($routesPath);
 
-        $handlersPath = ROOT.'/components/RequestHandlers.php';
-        $this->requestHandlers = include($handlersPath);
+        $handlersPath = ROOT.'\components\requestHandlers.php';
+        $this->requestHandlers = include_once($handlersPath);
 
         $this->defaultPagesClass = new DefaultPages();
     }
@@ -53,16 +53,18 @@ class Router
                     include_once($controllerFile);
                 }
 
-                foreach ($requestHandlers as $handler) {
+                foreach ($this->requestHandlers as $handler) {
                     if($handler->handle() === false){
                         $this->defaultPagesClass->getLogination();
                     }
                 }
-                
+
                 $controllerObject = new $controllerName();
 
                 call_user_func_array(array($controllerObject, $actionName), $parametrs);
             }
         }
+        
+        $this->defaultPagesClass->getHomePage();
     }
 }
