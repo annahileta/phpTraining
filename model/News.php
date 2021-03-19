@@ -1,42 +1,44 @@
 <?php
 
-include_once ROOT.'\components\Db.php';
+include_once ROOT.'\config\Db.php';
+include_once ROOT.'\model\BaseModel.php';
 
 class News extends BaseModel
 {
-    public static function getNewsItemById($id)
+    public function getNewsItemById($id)
     {
-        $db = Db::getConnection();
+        $db = $this->getDbClassInstance()->getConnection();
 
-        $result = mysqli_query($db, 'SELECT * FROM news WHERE id=' . $id);
-
-        $newsItem = $result;
-
-        Db::closeConnection($db);
+        $newsItem = $db->query('SELECT * FROM news WHERE id=' . $id);
 
         return $newsItem;
     }
 
-    public static function getNewsList()
+    public function getNewsList()
     {
-        $db = Db::getConnection();
+
+        $db = $this->getDbClassInstance()->getConnection();
 
         $newsList = array();
-
-        $result = mysqli_query($db, 'SELECT * FROM news ORDER BY date DESC LIMIT 10');
-
         $i = 0;
-        foreach ($result as $row) {
-            $newsList[$i] = $row;
-            $i++;
+
+        try {
+            foreach($db->query('SELECT * from news') as $row) {
+                $newsList[$i] = $row;
+                $i++;
+            }
+            $db = null;
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            die();
         }
-        Db::closeConnection($db);
+        
         return $newsList;
     }
 
-    public static function insertArticle($data)
+    public function insertArticle($data)
    {
-        $db = Db::getConnection();
+        $db = $this->getDbClassInstance()->getConnection();
 
         $sql = sprintf("INSERT INTO news (title, date, content, author_name) VALUES (
             '%s', '%s', '%s', '%s'
@@ -45,9 +47,7 @@ class News extends BaseModel
         mysqli_real_escape_string($db, $data['date']), 
         mysqli_real_escape_string($db, $data['content']),
         mysqli_real_escape_string($db, $data['author']));
-
-        mysqli_query($db, $sql);
-
-        Db::closeConnection($db);
+        
+        $db->query($sql);
     }
 }
