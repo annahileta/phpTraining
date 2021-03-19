@@ -1,8 +1,6 @@
 <?php
 
-namespace MVCFramework;
-
-use Db;
+require_once(ROOT.'\config\Db.php');
 
 class BaseController
 {
@@ -20,5 +18,10 @@ class BaseController
 	public static function get_this_controller_object()
 	{
 		return self::$thisObject;
+	}
+	
+	public function getDbClassInstance()
+	{
+		return $this->dbClassInstance;
 	}
 }

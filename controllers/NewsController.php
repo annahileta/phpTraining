@@ -1,10 +1,9 @@
 <?php
 
-namespace MVCFramework;
+require_once(ROOT.'\controllers\BaseController.php');
+require_once(ROOT.'\model\News.php');
 
-use News;
-
-class NewsController
+class NewsController extends BaseController
 {
     private $newsModel;
 

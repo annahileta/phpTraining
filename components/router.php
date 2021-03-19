@@ -1,15 +1,22 @@
 <?php
 
-namespace MVCFramework;
+require_once(ROOT.'\components\defaultPages.php');
 
 class Router 
 {
     private $routes;
+    private $requestHandlers;
+    private $defaultPagesClass;
 
     public function __construct()
     {
         $routesPath = ROOT.'/config/routes.php';
         $this->routes = include($routesPath);
+
+        $handlersPath = ROOT.'/components/RequestHandlers.php';
+        $this->requestHandlers = include($handlersPath);
+
+        $this->defaultPagesClass = new DefaultPages();
     }
 
     private function getURI()
@@ -46,12 +53,15 @@ class Router
                     include_once($controllerFile);
                 }
 
+                foreach ($requestHandlers as $handler) {
+                    if($handler->handle() === false){
+                        $this->defaultPagesClass->getLogination();
+                    }
+                }
+                
                 $controllerObject = new $controllerName();
 
-                $result = call_user_func_array(array($controllerObject, $actionName), $parametrs);
-                if ($result != null) {
-                    break;
-                }
+                call_user_func_array(array($controllerObject, $actionName), $parametrs);
             }
         }
     }

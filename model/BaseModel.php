@@ -1,7 +1,6 @@
 <?php
 
-namespace MVCFramework;
-use Db;
+require_once(ROOT.'\config\Db.php');
 
 class BaseModel {
 	private static $thisObject;

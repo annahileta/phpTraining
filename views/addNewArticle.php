@@ -38,7 +38,7 @@
 			<div id="page-bgbtm">
 				<div id="content">
 					<?php
-						use MVCFramework\NewsController;
+						require ROOT.'/controllers/NewsController.php';
 
 						if (isset($_POST['submit'])) {
 							$controller = new NewsController();

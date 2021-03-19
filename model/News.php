@@ -1,7 +1,6 @@
 <?php
 
-namespace MVCFramework;
-use MVCFramework\BaseModel;
+require_once(ROOT.'\model\BaseModel.php');
 
 class News extends BaseModel
 {
