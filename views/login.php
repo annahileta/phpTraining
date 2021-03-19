@@ -7,7 +7,8 @@
         <?php 
 			require ROOT.'/controllers/AuthorizationController.php';
 
-			if (isset($_POST['submit'])) {
+			if (isset($_POST['submit'])) 
+			{
 				$controller = new AuthorizationController();
 				$controller->actionAuthorize($_POST);
 			}

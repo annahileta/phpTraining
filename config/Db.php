@@ -7,8 +7,9 @@ class Db
 
     public function __construct()
     {
-        $configFile = ROOT.'/config/DbConfig.php';
+        $configFile = ROOT.'\config\DbConfig.php';
         $config = require_once($configFile);
+
         $this->host = $config['host'];
         $this->user = $config['user'];
         $this->pass = $config['pass'];
@@ -17,8 +18,8 @@ class Db
     
     public function getConnection()
     {
-        if (isset($this->db) === false) { 
-
+        if (isset($this->db) === false) 
+        { 
             $temp = new PDO('mysql:host='.  $this->host .
             ';dbname=' .  $this->db_name, 
             $this->user, 

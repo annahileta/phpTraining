@@ -40,7 +40,8 @@
 					<?php
 						require ROOT.'/controllers/NewsController.php';
 
-						if (isset($_POST['submit'])) {
+						if (isset($_POST['submit'])) 
+						{
 							$controller = new NewsController();
 							$controller->actionInsertNewArticle($_POST);
 						}

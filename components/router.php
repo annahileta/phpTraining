@@ -21,7 +21,8 @@ class Router
 
     private function getURI()
     {
-        if (!empty($_SERVER['REQUEST_URI'])){
+        if (!empty($_SERVER['REQUEST_URI']))
+        {
             return trim($_SERVER['REQUEST_URI'], '/');
         }
     }
@@ -30,7 +31,8 @@ class Router
     {
         $uri = $this->getURI();
 
-        foreach ($this->routes as $uriPattern => $path){
+        foreach ($this->routes as $uriPattern => $path)
+        {
             if (preg_match("~$uriPattern~", $uri))
             {
                 $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
@@ -53,8 +55,10 @@ class Router
                     include_once($controllerFile);
                 }
 
-                foreach ($this->requestHandlers as $handler) {
-                    if($handler->handle() === false){
+                foreach ($this->requestHandlers as $handler) 
+                {
+                    if($handler->handle() === false)
+                    {
                         $this->defaultPagesClass->getLogination();
                     }
                 }
@@ -64,7 +68,7 @@ class Router
                 call_user_func_array(array($controllerObject, $actionName), $parametrs);
             }
         }
-        
+
         $this->defaultPagesClass->getHomePage();
     }
 }

@@ -21,13 +21,17 @@ class News extends BaseModel
         $newsList = array();
         $i = 0;
 
-        try {
-            foreach($db->query('SELECT * from news') as $row) {
+        try 
+        {
+            foreach($db->query('SELECT * from news') as $row) 
+            {
                 $newsList[$i] = $row;
                 $i++;
             }
             $db = null;
-        } catch (\PDOException $e) {
+        } 
+        catch (\PDOException $e) 
+        {
             print "Error!: " . $e->getMessage() . "<br/>";
             die();
         }

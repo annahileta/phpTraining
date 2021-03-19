@@ -18,17 +18,23 @@ class AuthorizationController extends BaseController implements Handler
 
         $result = $db->query($sql);
 
-        if (isset($result)) {
+        if (isset($result)) 
+        {
             $hash = password_verify($data['password'], $result['password']);
 
-            if ($hash) {
+            if ($hash) 
+            {
                 print_r('Login successful');
 
                 $_SESSION['user'] = $result['name'];
-            } else {
+            } 
+            else 
+            {
                 print_r('Login failed.');
             }
-        } else {
+        } 
+        else 
+        {
             print_r('Login failed.');
         }
     }
