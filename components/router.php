@@ -1,17 +1,14 @@
 <?php
 
-require_once(ROOT.'\components\defaultPages.php');
-
 class Router 
 {
     private $routes;
     private $requestHandlers = array();
     private $defaultPagesClass;
 
-    public function __construct()
-    {
-        $routesPath = ROOT.'/config/routes.php';
-        $this->routes = include_once($routesPath);
+    public function __construct() {
+        $routesClass = new Routes();
+        $this->routes = $routesClass->GetRoutes();
 
         $handlersPath = ROOT.'\components\requestHandlers.php';
         $this->requestHandlers = include_once($handlersPath);
@@ -19,22 +16,17 @@ class Router
         $this->defaultPagesClass = new DefaultPages();
     }
 
-    private function getURI()
-    {
-        if (!empty($_SERVER['REQUEST_URI']))
-        {
+    private function getURI() {
+        if (!empty($_SERVER['REQUEST_URI'])) {
             return trim($_SERVER['REQUEST_URI'], '/');
         }
     }
 
-    public function run()
-    {
+    public function run() {
         $uri = $this->getURI();
 
-        foreach ($this->routes as $uriPattern => $path)
-        {
-            if (preg_match("~$uriPattern~", $uri))
-            {
+        foreach ($this->routes as $uriPattern => $path) {
+            if (preg_match("~$uriPattern~", $uri)) {
                 $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
 
                 $segments = explode('/', $internalRoute);
@@ -50,15 +42,12 @@ class Router
                 $controllerFile = ROOT . '/controllers/' .
                 $controllerName . '.php';
 
-                if (file_exists($controllerFile))
-                {
+                if (file_exists($controllerFile)) {
                     include_once($controllerFile);
                 }
 
-                foreach ($this->requestHandlers as $handler) 
-                {
-                    if($handler->handle() === false)
-                    {
+                foreach ($this->requestHandlers as $handler) {
+                    if($handler->handle() === false) {
                         $this->defaultPagesClass->getLogination();
                     }
                 }
@@ -69,6 +58,6 @@ class Router
             }
         }
 
-        $this->defaultPagesClass->getHomePage();
+        $this->defaultPagesClass->getHomePage($this->routes['default']);
     }
 }

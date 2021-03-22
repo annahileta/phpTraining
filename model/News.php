@@ -1,11 +1,12 @@
 <?php
 
-require_once(ROOT.'\model\BaseModel.php');
-
 class News extends BaseModel
 {
-    public function getNewsItemById($id)
-    {
+    public static function getThisObject() {
+		return new self();
+	}
+
+    public function getNewsItemById($id) {
         $db = $this->getDbClassInstance()->getConnection();
 
         $newsItem = $db->query('SELECT * FROM news WHERE id=' . $id);
@@ -13,25 +14,19 @@ class News extends BaseModel
         return $newsItem;
     }
 
-    public function getNewsList()
-    {
-
+    public function getNewsList() {
         $db = $this->getDbClassInstance()->getConnection();
 
         $newsList = array();
         $i = 0;
 
-        try 
-        {
-            foreach($db->query('SELECT * from news') as $row) 
-            {
+        try {
+            foreach($db->query('SELECT * from news') as $row) {
                 $newsList[$i] = $row;
                 $i++;
             }
             $db = null;
-        } 
-        catch (\PDOException $e) 
-        {
+        } catch (\PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
             die();
         }
@@ -39,8 +34,7 @@ class News extends BaseModel
         return $newsList;
     }
 
-    public function insertArticle($data)
-   {
+    public function insertArticle($data) {
         $db = $this->getDbClassInstance()->getConnection();
 
         $sql = sprintf("INSERT INTO news (title, date, content, author_name) VALUES (

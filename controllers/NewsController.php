@@ -1,41 +1,30 @@
 <?php
 
-require_once(ROOT.'\controllers\BaseController.php');
-require_once(ROOT.'\model\News.php');
-
 class NewsController extends BaseController
-{
-    private $newsModel;
-
-    public function __construct()
-    {
-        $this->newsModel = new News();
-    }
-
-    public function actionIndex()
-    {
-        $newsList = array();
-        $newsList = $this->newsModel->getNewsList();
+{ 
+    public function actionIndex() {
+        $newsList = NewsFactory::CreateNews()->getNewsList();
 
         require_once(ROOT . '\views\index.php');
     }
 
-    public function actionView($id)
-    {
-        $newsItem = $this->newsModel->getNewsItemById($id);
+    public function actionView($id) {
+        $newsItem = NewsFactory::CreateNews()->getNewsItemById($id);
 
         require_once(ROOT . '\views\view.php');
     }
 
-    public function actionAddNewArticle()
-    {
+    public function actionAddNewArticle() {
         require_once(ROOT . '\views\addNewArticle.php');
     }
 
-    public function actionInsertNewArticle($data)
-    {
-        $this->newsModel->insertArticle($data);
+    public function actionInsertNewArticle($data) {
+        NewsFactory::CreateNews()->insertArticle($data);
 
         $this->actionIndex();
+    }
+
+    public static function GetInstance() {
+        return new self();
     }
 }

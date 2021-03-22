@@ -1,46 +1,34 @@
 <?php
 
-require_once(ROOT.'\interfaces\Handler.php');
-require_once(ROOT.'\controllers\BaseController.php');
-
 class AuthorizationController extends BaseController implements Handler
 {
-    public function actionLogin()
-    {
+    public function actionLogin() {
         require_once(ROOT . '\views\login.php');
     }
 
-    public function actionAuthorize($data)
-    {
-        $db =  $this->getDbClassInstance()->getConnection();
+    public function actionAuthorize($data) {
+        $result = AuthorizationFactory::CreateAuthorization()->getAuthorizedUser($data['name']);
 
-        $sql = sprintf("SELECT * FROM users WHERE name = '%s'", $data['name']);
-
-        $result = $db->query($sql);
-
-        if (isset($result)) 
-        {
+        if (isset($result)) {
             $hash = password_verify($data['password'], $result['password']);
 
-            if ($hash) 
-            {
+            if ($hash) {
                 print_r('Login successful');
 
                 $_SESSION['user'] = $result['name'];
-            } 
-            else 
-            {
+            } else {
                 print_r('Login failed.');
             }
-        } 
-        else 
-        {
+        } else {
             print_r('Login failed.');
         }
     }
 
-    public function handle(): bool
-    {
+    public function handle(): bool {
         return isset($_SESSION['user']);
+    }
+
+    public static function GetInstance() {
+        return new self();
     }
 }

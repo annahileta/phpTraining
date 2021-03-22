@@ -1,0 +1,22 @@
+{
+    "name": "auto/mvc",
+    "description": "Loads all classes and files needed for MVC framework",
+    "autoload": {
+        "files": [
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/controllers/NewsController.php", 
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/controllers/AuthorizationController.php", 
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/components/defaultPages.php", 
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/config/routes.php", 
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/config/DbConfig.php", 
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/config/Db.php", 
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/interfaces/Handler.php", 
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/controllers/BaseController.php", 
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/factories/AuthorizationFactory.php", 
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/factories/NewsFactory.php", 
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/model/Authorization.php", 
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/model/News.php", 
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/model/BaseModel.php",
+            "C:/xampp/htdocs/my_php_codes/mvc_framework/config/routes.php"
+        ]
+    }
+}
