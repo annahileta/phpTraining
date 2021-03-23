@@ -2,10 +2,6 @@
 
 class News extends BaseModel
 {
-    public static function getThisObject() {
-		return new self();
-	}
-
     public function getNewsItemById($id) {
         $db = $this->getDbClassInstance()->getConnection();
 

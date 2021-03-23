@@ -7,20 +7,19 @@ namespace Composer\Autoload;
 class ComposerStaticInit0172b2bd0a1bd31a43442118116b2e03
 {
     public static $files = array (
-        'c433820e201f5f2128fbc2b610835b92' => '/controllers/NewsController.php',
-        'e8e6827f53ec6308eb7b5ed0a613caa1' => '/controllers/AuthorizationController.php',
-        '3fa4b32d79effe9ab352f9511e256ebe' => '/components/defaultPages.php',
-        '76bb6b1b4a8cec46114681571156cfb6' => '/config/routes.php',
-        '0bdc5b6fb2831824da68d9277e5acabd' => '/config/DbConfig.php',
-        'cc7ce479cd49811030aa83d71712ac40' => '/config/IDb.php',
-        '6c94e73ae683465e638e744b94d3d9d0' => '/config/Db.php',
-        'ea43be64c3b2143e49b489ce0fe492f0' => '/interfaces/Handler.php',
-        '00d3c19ac7541f6a0e11ba89160f1d71' => '/controllers/BaseController.php',
-        'eab47482a7e765be6a78886adf86ec31' => '/factories/AuthorizationFactory.php',
-        '09d84ab519ed5fce1623f3b207765c2a' => '/factories/NewsFactory.php',
-        '9bde13ee3044d49c530620bbc2795597' => '/model/Authorization.php',
-        'aa0af336c6a31335f9a4b62ed2328aac' => '/model/News.php',
-        'e88af3cf14cc3f6ef945253acaa5fd8d' => '/model/BaseModel.php',
+        'b65920f86776cd2848fa16ba821c944b' => __DIR__ . '/../..' . '/controllers/NewsController.php',
+        'a39e8df22de524a62601cb8a13003434' => __DIR__ . '/../..' . '/controllers/AuthorizationController.php',
+        '0a4a2dbf440d8224ae421770a755163a' => __DIR__ . '/../..' . '/components/defaultPages.php',
+        '73d7e63862708a940f19b96697f606c8' => __DIR__ . '/../..' . '/config/routes.php',
+        'b5b8a9b20d76fec9a238a5c462709cf1' => __DIR__ . '/../..' . '/config/DbConfig.php',
+        'b492223c56c3a7eaae2013e8d82d4097' => __DIR__ . '/../..' . '/config/Db.php',
+        '0a7f14f3a65ff49eb8d229f564b7b5c7' => __DIR__ . '/../..' . '/interfaces/Handler.php',
+        'd9e832219b5f7f8f2b7188077b250f29' => __DIR__ . '/../..' . '/controllers/BaseController.php',
+        'b9ece64c40c2e20cd1aeafe2a1cd236d' => __DIR__ . '/../..' . '/factories/ModelsFactory.php',
+        '01b51ad93092b7c496375d7f87e031fa' => __DIR__ . '/../..' . '/factories/ControllersFactory.php',
+        'b90525b2105871f34ae59ca329ef065f' => __DIR__ . '/../..' . '/model/Authorization.php',
+        'eeee8055f6e4071dc7e38106db480b32' => __DIR__ . '/../..' . '/model/News.php',
+        '6b12e2dba274888c4420a54db3e7671d' => __DIR__ . '/../..' . '/model/BaseModel.php',
     );
 
     public static $classMap = array (

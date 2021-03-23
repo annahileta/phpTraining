@@ -1,5 +1,5 @@
 <?php
 
 return  array(
-    AuthorizationController::GetInstance(),
+    ControllersFactory::getController('AuthorizationController'),
 );

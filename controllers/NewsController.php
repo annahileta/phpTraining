@@ -1,15 +1,17 @@
 <?php
 
+require_once ROOT.'/controllers/BaseController.php';
+
 class NewsController extends BaseController
 { 
     public function actionIndex() {
-        $newsList = NewsFactory::CreateNews()->getNewsList();
+        $newsList = ModelsFactory::getModel('News')->getNewsList();
 
         require_once(ROOT . '\views\index.php');
     }
 
     public function actionView($id) {
-        $newsItem = NewsFactory::CreateNews()->getNewsItemById($id);
+        $newsItem = ModelsFactory::getModel('News')->getNewsItemById($id);
 
         require_once(ROOT . '\views\view.php');
     }
@@ -19,12 +21,8 @@ class NewsController extends BaseController
     }
 
     public function actionInsertNewArticle($data) {
-        NewsFactory::CreateNews()->insertArticle($data);
+        ModelsFactory::getModel('News')->insertArticle($data);
 
         $this->actionIndex();
-    }
-
-    public static function GetInstance() {
-        return new self();
     }
 }

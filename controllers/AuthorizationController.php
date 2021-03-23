@@ -1,5 +1,6 @@
 <?php
 
+require_once ROOT.'\interfaces\Handler.php';
 class AuthorizationController extends BaseController implements Handler
 {
     public function actionLogin() {
@@ -7,7 +8,7 @@ class AuthorizationController extends BaseController implements Handler
     }
 
     public function actionAuthorize($data) {
-        $result = AuthorizationFactory::CreateAuthorization()->getAuthorizedUser($data['name']);
+        $result = ModelsFactory::getModel('Authorization')->getAuthorizedUser($data['name']);
 
         if (isset($result)) {
             $hash = password_verify($data['password'], $result['password']);
@@ -26,9 +27,5 @@ class AuthorizationController extends BaseController implements Handler
 
     public function handle(): bool {
         return isset($_SESSION['user']);
-    }
-
-    public static function GetInstance() {
-        return new self();
     }
 }

@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '856ef39d6f37c92be717f3286338bc2322cd77e7',
+    'reference' => '62227e74c9787e406f85cb6cdc3f57c3a03568c7',
     'name' => 'auto/mvc',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '856ef39d6f37c92be717f3286338bc2322cd77e7',
+      'reference' => '62227e74c9787e406f85cb6cdc3f57c3a03568c7',
     ),
   ),
 );

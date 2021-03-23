@@ -5,10 +5,8 @@
     </head>
     <body>
         <?php 
-			require ROOT.'/controllers/AuthorizationController.php';
-
 			if (isset($_POST['submit'])) {
-				AuthorizationController::GetInstance()->actionAuthorize($_POST);
+				ControllersFactory::getController("AuthorizationController")->actionAuthorize($_POST);
 			}
         ?>
         <form method="POST" action="">

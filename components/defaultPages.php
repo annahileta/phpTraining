@@ -21,7 +21,7 @@ class DefaultPages
     }
 
     public function getLogination() {
-        $controller = AuthorizationController::GetInstance();
+        $controller = ControllersFactory::getController('AuthorizationController');
         $controller->actionLogin();
     }
 }

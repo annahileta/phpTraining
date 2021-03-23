@@ -38,11 +38,8 @@
 			<div id="page-bgbtm">
 				<div id="content">
 					<?php
-						require ROOT.'/controllers/NewsController.php';
-
 						if (isset($_POST['submit'])) {
-							$controller = new NewsController();
-							$controller->actionInsertNewArticle($_POST);
+							ControllersFactory::getController("NewsController")->actionInsertNewArticle($_POST);
 						}
 					?>
 					<form method="POST" action="">

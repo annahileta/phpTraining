@@ -2,10 +2,6 @@
 
 class Authorization extends BaseModel
 {
-    public static function getThisObject() {
-		return new self();
-	}
-
     public function getAuthorizedUser($username) {
         $db = $this->getDbClassInstance()->getConnection();
 
