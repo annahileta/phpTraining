@@ -1,5 +1,5 @@
 <?php
 
 return  array(
-    ControllersFactory::getController('AuthorizationController'),
+    new AuthorizationController(),
 );

@@ -1,5 +1,7 @@
 <?php
 
+require_once ROOT.'/model/BaseModel.php';
+
 class Authorization extends BaseModel
 {
     public function getAuthorizedUser($username) {

@@ -1,7 +1,8 @@
 <?php
 
 require_once ROOT.'\interfaces\Handler.php';
-class AuthorizationController extends BaseController implements Handler
+
+class AuthorizationController extends BaseController implements MHandler
 {
     public function actionLogin() {
         require_once(ROOT . '\views\login.php');

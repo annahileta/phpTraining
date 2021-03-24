@@ -2,38 +2,17 @@
 
 class ModelsFactory
 {
-    private $allModels = array();
-    private $news;
-    private $authorization;
-    
-    public function __construct()
-    {
-        $possibleModelsFile = ROOT.'/factories/PossibleModels.php';
-        $this->allModels = require_once($possibleModelsFile);
-    }
+    static $allModels = [];
 
     public static function getModel($modelName) {
-        if (in_array($modelName, self::$allModels)) {
-            $getModelMethod = 'get'. $modelName .'Model';
-            return self::$getModelMethod();
+        if (class_exists($modelName)) {
+            if (!isset(self::$allModels[$modelName])){
+                self::$allModels[$modelName] = new $modelName();
+            }
+
+            return self::$allModels[$modelName];
         } else {
-            return new Error("The model is not registered in possible models.");
+            return new Error("This class is not added to the system!");
         }
-    }
-
-    private static function getNewsModel() {
-        if (isset(self::$news) === false) { 
-            self::$news = new News();
-        }
-
-        return self::$news;
-    }
-
-    private static function getAuthorizationModel() {
-        if (isset(self::$authorization) === false) { 
-            self::$authorization = new Authorization();
-        }
-
-        return self::$authorization;
     }
 }

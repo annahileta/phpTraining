@@ -1,6 +1,6 @@
 <?php
 
-    interface Handler
+    interface MHandler
     {
         public function handle(): bool;
     }

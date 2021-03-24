@@ -37,26 +37,11 @@
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
 				<div id="content">
-					<form method="POST" action="/news/insertNewArticle">
-						<h2>Get creative and add a new article</h2>
-						<div>
-							<p>Title</p>
-							<input type="text" name="title" >
-						</div>
-						<div>
-							<p>Author name</p>
-							<input type="text" name="author" >
-						</div>
-						<div>
-							<p>Date</p>
-							<input type="date" name="date" >
-						</div>
-						<div>
-							<p>Content</p>
-							<textarea name="content" style="width: 60%; height: 100px;"> </textarea>
-						</div>
-						<input type="submit" name="submit" value="Submit">
-					</form>
+                    <div id="main">
+                        <div class="fof">
+                                <h1>Error 404</h1>
+                        </div>
+                    </div>
 					<p><a href='/news/' class="permalink"> Back to HomePage</a></p>
 					<div style="clear: both;">&nbsp;</div>
 				</div>

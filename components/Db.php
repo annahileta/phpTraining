@@ -1,20 +1,19 @@
 <?php
 
+use DevCoder\EnvParser;
+
 class Db
 {
     private $db;
     private $host, $user, $pass, $db_name;
 
     public function __construct() {
-        $configClass = new DbConfig();
-        $config = $configClass->GetConfiguration();
+        (new EnvParser(__DIR__ . '/config/.env'))->load();
 
-        if (is_array($config) || is_object($config)) {
-            $this->host = $config['host'];
-            $this->user = $config['user'];
-            $this->pass = $config['pass'];
-            $this->db_name = $config['dbname'];
-        }
+        $this->host = getenv('HOST_NAME');
+        $this->user = getenv('USER_NAME');
+        $this->pass = getenv('PASSWORD');
+        $this->db_name = getenv('DB_NAME');
     }
     
     public function getConnection() {

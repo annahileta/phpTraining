@@ -58,6 +58,6 @@ class Router
             }
         }
 
-        $this->defaultPagesClass->getHomePage($this->routes['default']);
+        $this->defaultPagesClass->getErrorPage();
     }
 }
