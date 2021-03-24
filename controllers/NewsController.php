@@ -1,6 +1,7 @@
 <?php
 
-require_once ROOT.'/controllers/BaseController.php';
+namespace App\Controllers;
+use App\Factories\ModelsFactory;
 
 class NewsController extends BaseController
 { 

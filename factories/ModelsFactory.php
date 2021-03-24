@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Factories;
+
 class ModelsFactory
 {
     static $allModels = [];
@@ -12,7 +14,7 @@ class ModelsFactory
 
             return self::$allModels[$modelName];
         } else {
-            return new Error("This class is not added to the system!");
+            return new \Error("This class is not added to the system!");
         }
     }
 }

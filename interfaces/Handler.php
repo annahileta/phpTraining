@@ -1,6 +1,8 @@
 <?php
 
-    interface MHandler
-    {
-        public function handle(): bool;
-    }
+namespace App\Interfaces;
+
+interface Handler
+{
+    public function handle(): bool;
+}

@@ -1,8 +1,12 @@
 <?php
 
+namespace App\Controllers;
+use App\Factories\ModelsFactory;
+use App\Interfaces\Handler;
+
 require_once ROOT.'\interfaces\Handler.php';
 
-class AuthorizationController extends BaseController implements MHandler
+class AuthorizationController extends BaseController implements Handler
 {
     public function actionLogin() {
         require_once(ROOT . '\views\login.php');

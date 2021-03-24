@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Components;
+use App\Config\Routes;
+use App\Components\DefaultPages;
+
 class Router 
 {
     private $routes;

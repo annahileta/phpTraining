@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Controllers;
+use App\Components\Db;
+
 class BaseController
 {
     public $db;

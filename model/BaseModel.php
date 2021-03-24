@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Models;
+use App\Components\Db;
+
 class BaseModel {
     public function __construct() {
         $this->dbClassInstance = new Db();

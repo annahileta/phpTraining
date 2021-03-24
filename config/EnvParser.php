@@ -1,6 +1,6 @@
 <?php
 
-namespace DevCoder;
+namespace App\Config;
 
 class EnvParser
 {

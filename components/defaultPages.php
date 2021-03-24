@@ -1,16 +1,18 @@
 <?php
 
+namespace App\Components;
+use App\Controllers;
 require_once ROOT.'/controllers/ErrorController.php';
 
 class DefaultPages
 {
     public function getErrorPage() {
-        $controller = new ErrorController();
+        $controller = new Controllers\ErrorController();
         $controller->action404Error();
     }
 
     public function getLogination() {
-        $controller = new AuthorizationController();
+        $controller = new Controllers\AuthorizationController();
         $controller->actionLogin();
     }
 }

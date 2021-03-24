@@ -1,6 +1,7 @@
 <?php
 
-use DevCoder\EnvParser;
+namespace App\Components;
+use App\Config\EnvParser;
 
 class Db
 {
@@ -18,7 +19,7 @@ class Db
     
     public function getConnection() {
         if (isset($this->db) === false) { 
-            $this->db = new PDO('mysql:host='.  $this->host .
+            $this->db = new \PDO('mysql:host='.  $this->host .
             ';dbname=' .  $this->db_name, 
             $this->user, 
             $this->pass);
