@@ -2,24 +2,19 @@
     "name": "auto/mvc",
     "description": "Loads all classes and files needed for MVC framework",
     "autoload": {
-        "classmap": [
-            ""
-        ],
+        "psr-4": {
+            "App\\Components\\": "components/",
+            "App\\Config\\": "config/",
+            "App\\Controllers\\": "controllers/",
+            "App\\Factories\\": "factories/",
+            "App\\Interfaces\\": "interfaces/",
+            "App\\Models\\": "models/"
+        },
         "files": [
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/controllers/NewsController.php", 
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/controllers/AuthorizationController.php", 
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/components/defaultPages.php", 
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/config/routes.php", 
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/components/Db.php", 
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/interfaces/Handler.php", 
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/controllers/BaseController.php", 
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/controllers/ErrorController.php", 
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/factories/ModelsFactory.php", 
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/factories/ControllersFactory.php", 
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/model/Authorization.php", 
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/model/News.php", 
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/model/BaseModel.php",
-            "C:/xampp/htdocs/my_php_codes/mvc_framework/config/routes.php"
+            "/MVCFramework.php"
         ]
+    },
+    "config": {
+        "optimize-autoloader":true
     }
 }

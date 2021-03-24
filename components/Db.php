@@ -9,7 +9,7 @@ class Db
     private $host, $user, $pass, $db_name;
 
     public function __construct() {
-        (new EnvParser(__DIR__ . '/config/.env'))->load();
+        (new EnvParser(ROOT . '\config\.env'))->load();
 
         $this->host = getenv('HOST_NAME');
         $this->user = getenv('USER_NAME');

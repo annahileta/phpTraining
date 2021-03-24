@@ -7,29 +7,69 @@ namespace Composer\Autoload;
 class ComposerStaticInit0172b2bd0a1bd31a43442118116b2e03
 {
     public static $files = array (
-        'b65920f86776cd2848fa16ba821c944b' => __DIR__ . '/../..' . '/controllers/NewsController.php',
-        'a39e8df22de524a62601cb8a13003434' => __DIR__ . '/../..' . '/controllers/AuthorizationController.php',
-        '0a4a2dbf440d8224ae421770a755163a' => __DIR__ . '/../..' . '/components/defaultPages.php',
-        '73d7e63862708a940f19b96697f606c8' => __DIR__ . '/../..' . '/config/routes.php',
-        'b5b8a9b20d76fec9a238a5c462709cf1' => __DIR__ . '/../..' . '/config/DbConfig.php',
-        'bae916d72ae7b460c4a882dde6a96954' => __DIR__ . '/../..' . '/components/Db.php',
-        '0a7f14f3a65ff49eb8d229f564b7b5c7' => __DIR__ . '/../..' . '/interfaces/Handler.php',
-        'd9e832219b5f7f8f2b7188077b250f29' => __DIR__ . '/../..' . '/controllers/BaseController.php',
-        'a9b0c7054362b03f18b7dc38b66750ee' => __DIR__ . '/../..' . '/controllers/ErrorController.php',
-        'b9ece64c40c2e20cd1aeafe2a1cd236d' => __DIR__ . '/../..' . '/factories/ModelsFactory.php',
-        '01b51ad93092b7c496375d7f87e031fa' => __DIR__ . '/../..' . '/factories/ControllersFactory.php',
-        'b90525b2105871f34ae59ca329ef065f' => __DIR__ . '/../..' . '/model/Authorization.php',
-        'eeee8055f6e4071dc7e38106db480b32' => __DIR__ . '/../..' . '/model/News.php',
-        '6b12e2dba274888c4420a54db3e7671d' => __DIR__ . '/../..' . '/model/BaseModel.php',
+        'ce3c4dc4b47fdf66adf007267d8a79b1' => '/MVCFramework.php',
+    );
+
+    public static $prefixLengthsPsr4 = array (
+        'A' => 
+        array (
+            'App\\Models\\' => 11,
+            'App\\Interfaces\\' => 15,
+            'App\\Factories\\' => 14,
+            'App\\Controllers\\' => 16,
+            'App\\Config\\' => 11,
+            'App\\Components\\' => 15,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'App\\Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models',
+        ),
+        'App\\Interfaces\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/interfaces',
+        ),
+        'App\\Factories\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/factories',
+        ),
+        'App\\Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers',
+        ),
+        'App\\Config\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/config',
+        ),
+        'App\\Components\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/components',
+        ),
     );
 
     public static $classMap = array (
+        'App\\Components\\Db' => __DIR__ . '/../..' . '/components/Db.php',
+        'App\\Components\\DefaultPages' => __DIR__ . '/../..' . '/components/DefaultPages.php',
+        'App\\Components\\Router' => __DIR__ . '/../..' . '/components/Router.php',
+        'App\\Components\\View' => __DIR__ . '/../..' . '/components/View.php',
+        'App\\Config\\EnvParser' => __DIR__ . '/../..' . '/config/EnvParser.php',
+        'App\\Config\\Routes' => __DIR__ . '/../..' . '/config/Routes.php',
+        'App\\Controllers\\AuthorizationController' => __DIR__ . '/../..' . '/controllers/AuthorizationController.php',
+        'App\\Controllers\\BaseController' => __DIR__ . '/../..' . '/controllers/BaseController.php',
+        'App\\Controllers\\ErrorController' => __DIR__ . '/../..' . '/controllers/ErrorController.php',
+        'App\\Controllers\\NewsController' => __DIR__ . '/../..' . '/controllers/NewsController.php',
+        'App\\Factories\\ModelsFactory' => __DIR__ . '/../..' . '/factories/ModelsFactory.php',
+        'App\\Interfaces\\Handler' => __DIR__ . '/../..' . '/interfaces/Handler.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInit0172b2bd0a1bd31a43442118116b2e03::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit0172b2bd0a1bd31a43442118116b2e03::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInit0172b2bd0a1bd31a43442118116b2e03::$classMap;
 
         }, null, ClassLoader::class);

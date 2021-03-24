@@ -14,7 +14,10 @@ class Router
         $routesClass = new Routes();
         $this->routes = $routesClass->GetRoutes();
 
+        ob_start();
         $handlersPath = ROOT.'\components\requestHandlers.php';
+        ob_get_clean();
+        
         $this->requestHandlers = include_once($handlersPath);
 
         $this->defaultPagesClass = new DefaultPages();

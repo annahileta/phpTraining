@@ -3,13 +3,14 @@
 namespace App\Controllers;
 use App\Factories\ModelsFactory;
 use App\Interfaces\Handler;
+use App\Components\View;
 
 require_once ROOT.'\interfaces\Handler.php';
 
 class AuthorizationController extends BaseController implements Handler
 {
     public function actionLogin() {
-        require_once(ROOT . '\views\login.php');
+        View::create('login', []);
     }
 
     public function actionAuthorize($data) {
