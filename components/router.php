@@ -31,12 +31,29 @@ class Router
         }
     }
 
+    public function getMethod()
+    {
+        return $_SERVER['REQUEST_METHOD'];
+    }
+
+    public function isGet()
+    {
+        return $this->getMethod() === 'GET';
+    }
+
+    public function isPost()
+    {
+        return $this->getMethod() === 'POST';
+    }
+
     public function run() {
         $uri = $this->getURI();
 
-        foreach ($this->routes as $uriPattern => $path) {
-            if (preg_match("~$uriPattern~", $uri)) {
-                $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
+        foreach ($this->routes as $route) {
+            if (preg_match("~$route->route~", $uri) 
+                && $route->isGet === $this->isGet() 
+                && $route->isPost === $this->isPost()) {
+                $internalRoute = preg_replace("~$route->route~", $route->controllerAndMethod, $uri);
 
                 $segments = explode('/', $internalRoute);
                 array_shift($segments);
