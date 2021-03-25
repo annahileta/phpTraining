@@ -4,15 +4,16 @@ namespace App\Factories;
 
 class ModelsFactory
 {
-    static $allModels = [];
-
+    
     public static function getModel($modelName) {
+        static $allModels = [];
+        
         if (class_exists($modelName)) {
-            if (!isset(self::$allModels[$modelName])){
-                self::$allModels[$modelName] = new $modelName();
+            if (!isset($allModels[$modelName])){
+                $allModels[$modelName] = new $modelName();
             }
 
-            return self::$allModels[$modelName];
+            return $allModels[$modelName];
         } else {
             return new \Error("This class is not added to the system!");
         }

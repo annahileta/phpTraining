@@ -4,7 +4,7 @@ namespace App\Components;
 
 class View 
 {
-    public static function create(string $template, array $parameters) {
+    public static function create(string $template, array $parameters = []) {
         foreach ($parameters as $key => $value) {
             $$key = $value;
         }

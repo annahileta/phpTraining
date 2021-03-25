@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Factories\ModelsFactory;
 use App\Components\View;
 
-class NewsController extends BaseController
+class NewsController
 { 
     public function actionIndex() {
         $newsList = ModelsFactory::getModel('News')->getNewsList();
@@ -19,7 +19,7 @@ class NewsController extends BaseController
     }
 
     public function actionAddNewArticle() {
-        View::create('addNewArticle', []);
+        View::create('addNewArticle');
     }
 
     public function actionInsertNewArticle($data) {

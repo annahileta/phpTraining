@@ -3,9 +3,9 @@
 namespace App\Controllers;
 use App\Components\View;
 
-class ErrorController extends BaseController
+class ErrorController
 { 
     public function action404Error() {
-        View::create('error', []);
+        View::create('error');
     }
 }

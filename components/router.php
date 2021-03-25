@@ -4,6 +4,8 @@ namespace App\Components;
 use App\Config\Routes;
 use App\Components\DefaultPages;
 
+require_once ROOT.'\controllers\NewsController.php';
+
 class Router 
 {
     private $routes;

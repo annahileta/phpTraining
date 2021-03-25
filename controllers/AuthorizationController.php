@@ -7,10 +7,10 @@ use App\Components\View;
 
 require_once ROOT.'\interfaces\Handler.php';
 
-class AuthorizationController extends BaseController implements Handler
+class AuthorizationController implements Handler
 {
     public function actionLogin() {
-        View::create('login', []);
+        View::create('login');
     }
 
     public function actionAuthorize($data) {
